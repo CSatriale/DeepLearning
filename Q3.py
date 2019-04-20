@@ -42,11 +42,8 @@ volume_4 = Conv2D(32, (1,1), padding='same', activation='relu')(volume_4)
 
 # Concatenate all volumes of the Inception module
 inception_module = keras.layers.concatenate([volume_1, volume_2, volume_3,
-                                             volume_4], axis = 3) 
-inception_module = keras.layers.concatenate([volume_1, volume_2, volume_3,
-                                             volume_4], axis = 3) 
-inception_module = keras.layers.concatenate([volume_1, volume_2, volume_3,
-                                             volume_4], axis = 3) 
+                                             volume_4], axis = 5) 
+
     
 output = Flatten()(inception_module)
 out    = Dense(10, activation='softmax')(output)
