@@ -19,8 +19,8 @@ epochs = 50
 # Get the data ready
 X_train = X_train.astype('float32')
 X_test = X_test.astype('float32')
-X_train = X_train / 255.0
-X_test = X_test / 255.0
+X_train = X_train / 200.0
+X_test = X_test / 200.0
 
 y_train = np_utils.to_categorical(y_train)
 y_test = np_utils.to_categorical(y_test)
