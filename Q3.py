@@ -45,7 +45,7 @@ volume_4 = Conv2D(32, (1,1), padding='same', activation='relu')(volume_4)
 inception_module = keras.layers.concatenate([volume_1, volume_2, volume_3,
                                              volume_4], axis = 3)
 output = Flatten()(inception_module)
-out    = Dense(10, activation='softmax')(output)
+out    = Dense(10, activation='sigmoid')(output)
 
 
 model = Model(inputs = input_img, outputs = out)
