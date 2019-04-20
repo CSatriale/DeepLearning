@@ -19,8 +19,8 @@ epochs = 50
 # Get the data ready
 X_train = X_train.astype('float32')
 X_test = X_test.astype('float32')
-X_train = X_train / 200.0
-X_test = X_test / 200.0
+X_train = X_train / 255.0
+X_test = X_test / 255.0
 
 y_train = np_utils.to_categorical(y_train)
 y_test = np_utils.to_categorical(y_test)
@@ -41,6 +41,8 @@ volume_3 = Conv2D(64, (5,5), padding='same', activation='relu')(volume_3)
 volume_4 = MaxPooling2D((3,3), strides=(1,1), padding='same')(input_img)
 volume_4 = Conv2D(32, (1,1), padding='same', activation='relu')(volume_4)
 
+keras.layers.Dropout(rate, noise_shape=None, seed=None)
+
 # Concatenate all volumes of the Inception module
 inception_module = keras.layers.concatenate([volume_1, volume_2, volume_3,
                                              volume_4], axis = 3)
@@ -52,7 +54,7 @@ model = Model(inputs = input_img, outputs = out)
 print(model.summary())
 
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-hist = model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=epochs, batch_size=128)
+hist = model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=epochs, batch_size=256)
 
 
 scores = model.evaluate(X_test, y_test, verbose=0)
