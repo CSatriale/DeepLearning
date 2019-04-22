@@ -54,7 +54,7 @@ model = Model(inputs = input_img, outputs = out)
 print(model.summary())
 
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-hist = model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=epochs, batch_size=32)
+hist = model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=epochs, batch_size=1024)
 
 
 scores = model.evaluate(X_test, y_test, verbose=0)
