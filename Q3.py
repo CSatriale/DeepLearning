@@ -9,16 +9,8 @@ from keras.layers import Flatten, Dense
 from keras.layers import Input
 from keras.utils import np_utils
 from keras.datasets import cifar10
-from keras.optimizers import SGD
 
-lrate = 0.01
 epochs = 100
-
-decay = lrate/epochs
-
-sgd = SGD(lr=lrate, momentum=0.9, decay=decay, nesterov=False)
-
-
 
 # Get the data
 (X_train, y_train), (X_test, y_test) = cifar10.load_data()
@@ -60,7 +52,7 @@ out    = Dense(10, activation='softmax')(output)
 model = Model(inputs = input_img, outputs = out)
 print(model.summary())
 
-model.compile(loss='categorical_crossentropy', optimizer='sgd', metrics=['accuracy'])
+model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 hist = model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=epochs, batch_size=512)
 
 
