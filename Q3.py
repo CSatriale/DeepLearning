@@ -12,12 +12,13 @@ from keras.datasets import cifar10
 from keras.optimizers import SGD
 
 lrate = 0.01
+epochs = 100
 
 decay = lrate/epochs
 
 sgd = SGD(lr=lrate, momentum=0.9, decay=decay, nesterov=False)
 
-epochs = 100
+
 
 # Get the data
 (X_train, y_train), (X_test, y_test) = cifar10.load_data()
