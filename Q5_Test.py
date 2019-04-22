@@ -9,7 +9,7 @@ from keras.models import load_model
 from keras.utils import to_categorical
 from keras.preprocessing.sequence import pad_sequences
 
-seed_text = 'it was the year of our lord one thousand seven hundred and seventy-five'
+seed_text = 'it was the year of our lord one thousand seven hundred and seventy five'
 n_chars_to_predict = 500
 seq_length = 10
 
