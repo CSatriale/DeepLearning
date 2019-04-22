@@ -11,7 +11,7 @@ from keras.preprocessing.sequence import pad_sequences
 
 seed_text = 'you will probably be prepared to admit that you are not exceptional'
 n_chars_to_predict = 500
-seq_length = 10
+seq_length = 100
 
 # load the model and mapping
 model = load_model('model.h5')
